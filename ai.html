@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Security Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            width: 250px;
+            margin-right: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .secure {
+            color: green;
+        }
+
+        .not-secure {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Name: Abdullah Shah BSE-23F-221</h1>
+        <h1>Name: Ali Abbas BSE-23F-203</h1><hr>
+        <h1>Phishing Website Detection System</h1><hr>
+        <input type="text" id="urlInput" placeholder="Enter URL here">
+        <button onclick="checkUrl()">Check Security</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function checkUrl() {
+            const urlInput = document.getElementById('urlInput').value;
+            const result = document.getElementById('result');
+
+            if (urlInput.toLowerCase().startsWith('https://')) {
+                result.textContent = 'Secure Website';
+                result.className = 'secure';
+            } else if (urlInput.toLowerCase().startsWith('http://')) {
+                result.textContent = 'Not Secure Website';
+                result.className = 'not-secure';
+            } else {
+                result.textContent = 'Invalid URL format. Please enter a valid URL starting with http:// or https://';
+                result.className = 'not-secure';
+            }
+        }
+    </script>
+
+</body>
+</html>
